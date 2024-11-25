@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mexican Pac-Man - No Way Jose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff4757;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            color: #ff9642;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        canvas {
+            background: #000;
+            border: 3px solid #ff9642;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .score {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #666;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button,
+        .menu-button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            background: #ff9642;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        button:hover,
+        .menu-button:hover {
+            background: #ff7b2d;
+        }
+        
+        .mobile-controls {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-controls {
+                display: block;
+            }
+            
+            .mobile-controls button {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+                font-size: 24px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mexican Pac-Man</h1>
+        <h2>¡El Comedor de Cactus!</h2>
+        
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="score">High Score: <span id="highScore">0</span></div>
+        
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+        <div class="mobile-controls">
+            <div>
+                <button id="upButton">⬆️</button>
+            </div>
+            <div>
+                <button id="leftButton">⬅️</button>
+                <button id="rightButton">➡️</button>
+            </div>
+            <div>
+                <button id="downButton">⬇️</button>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="startButton">Start Game</button>
+            <a href="menu.html" class="menu-button">↩ Menu</a>
+        </div>
+    </div>
+
+    <audio id="eatSound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    
+    <script src="pacman.js"></script>
+</body>
+</html>

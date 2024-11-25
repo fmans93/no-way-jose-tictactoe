@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mexican Candy Crush - No Way Jose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #gameBoard {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 2px;
+            background: #ddd;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cell {
+            width: 50px;
+            height: 50px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s;
+            padding: 5px;
+        }
+        
+        .cell:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+        
+        .cell.selected {
+            border: 2px solid #3498db;
+            transform: scale(1.1);
+            z-index: 1;
+        }
+        
+        .stats {
+            margin: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        h2 {
+            color: #ff9642;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .score {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #666;
+        }
+        
+        .moves {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #666;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .menu-button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            background: #ff9642;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .menu-button:hover {
+            background: #ff7b2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mexican Candy Crush</h1>
+        <h2>¡Dulces Mexicanos!</h2>
+        
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="score">High Score: <span id="highScore">0</span></div>
+        <div class="moves">Moves Left: <span id="moves">30</span></div>
+        
+        <div class="game-board" id="gameBoard"></div>
+
+        <div class="buttons">
+            <button id="newGameButton">New Game</button>
+            <a href="menu.html" class="menu-button">↩ Menu</a>
+        </div>
+    </div>
+
+    <audio id="matchSound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    
+    <script src="candy.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mexican Fiesta Coloring - No Way Jose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #ff4757;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            color: #ff9642;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .canvas-container {
+            position: relative;
+            margin: 20px auto;
+            border: 3px solid #ff9642;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 500px;
+            aspect-ratio: 1;
+        }
+        
+        #coloringCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .color-picker {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: #333;
+            transform: scale(1.1);
+        }
+        
+        .template-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            background: #ff9642;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #ff4757;
+        }
+        
+        .menu-button {
+            background: #2ecc71;
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        
+        .menu-button:hover {
+            background: #27ae60;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.2em;
+            }
+            
+            .color-option {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mexican Fiesta Coloring</h1>
+        <h2>¡Página para Colorear!</h2>
+        
+        <div class="template-buttons">
+            <button onclick="selectTemplate('sombrero')">Sombrero</button>
+            <button onclick="selectTemplate('cactus')">Cactus</button>
+            <button onclick="selectTemplate('pinata')">Piñata</button>
+            <button onclick="selectTemplate('guitar')">Guitar</button>
+            <button onclick="selectTemplate('maracas')">Maracas</button>
+        </div>
+        
+        <div class="color-picker">
+            <div class="color-option selected" style="background: #ff0000" data-color="#ff0000"></div>
+            <div class="color-option" style="background: #ff9642" data-color="#ff9642"></div>
+            <div class="color-option" style="background: #ffd93d" data-color="#ffd93d"></div>
+            <div class="color-option" style="background: #2ecc71" data-color="#2ecc71"></div>
+            <div class="color-option" style="background: #3498db" data-color="#3498db"></div>
+            <div class="color-option" style="background: #9b59b6" data-color="#9b59b6"></div>
+            <div class="color-option" style="background: #e74c3c" data-color="#e74c3c"></div>
+            <div class="color-option" style="background: #95a5a6" data-color="#95a5a6"></div>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="coloringCanvas"></canvas>
+        </div>
+        
+        <audio id="colorSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+        
+        <a href="menu.html" class="menu-button">↩ Back to Menu</a>
+    </div>
+    
+    <script src="coloring.js"></script>
+</body>
+</html>

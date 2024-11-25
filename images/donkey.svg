@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Body -->
+  <path d="M20,50 Q50,20 80,50" fill="none" stroke="#4A4A4A" stroke-width="8"/>
+  
+  <!-- Head -->
+  <circle cx="80" cy="50" r="15" fill="#666666"/>
+  
+  <!-- Ears -->
+  <path d="M75,40 L65,25 L85,35 Z" fill="#666666"/>
+  <path d="M85,40 L95,25 L75,35 Z" fill="#666666"/>
+  
+  <!-- Legs -->
+  <line x1="30" y1="50" x2="30" y2="70" stroke="#4A4A4A" stroke-width="8"/>
+  <line x1="70" y1="50" x2="70" y2="70" stroke="#4A4A4A" stroke-width="8"/>
+  
+  <!-- Tail -->
+  <path d="M20,50 Q10,40 15,30" fill="none" stroke="#4A4A4A" stroke-width="4"/>
+  
+  <!-- Eyes -->
+  <circle cx="85" cy="45" r="2" fill="white"/>
+  
+  <!-- Nose -->
+  <ellipse cx="90" cy="55" rx="3" ry="2" fill="black"/>
+  
+  <!-- White highlights -->
+  <path d="M25,45 Q50,15 75,45" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+</svg>

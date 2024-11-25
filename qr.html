@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Way José QR Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #ff4757;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #ff9642;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        #qrcode {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .url-display {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            word-break: break-all;
+        }
+        
+        .ready {
+            color: #2ecc71;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>No Way José</h1>
+        <h2>¡Escanea el código QR para jugar!</h2>
+        
+        <div id="qrcode"></div>
+        
+        <div class="url-display">
+            <span id="serverUrl">http://192.168.1.211:8000/menu.html</span>
+        </div>
+        
+        <p class="ready">¡Ready to play! 🎮</p>
+        
+        <div class="instructions">
+            <p><strong>To share with friends:</strong></p>
+            <ol style="text-align: left;">
+                <li>Make sure your friend's device is on the same WiFi network as this computer</li>
+                <li>Scan the QR code with a phone camera</li>
+                <li>¡Enjoy the game!</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        function generateQR() {
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: document.getElementById("serverUrl").textContent,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+        
+        window.onload = generateQR;
+    </script>
+</body>
+</html>

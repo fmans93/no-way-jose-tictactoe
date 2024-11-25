@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Mask base -->
+  <path d="M20,30 Q50,20 80,30 Q90,50 80,70 Q50,80 20,70 Q10,50 20,30" 
+        fill="#9B59B6" stroke="#8E44AD" stroke-width="3"/>
+  
+  <!-- Eyes -->
+  <path d="M35,40 Q40,35 45,40 Q40,45 35,40" fill="#F1C40F"/>
+  <path d="M65,40 Q70,35 75,40 Q70,45 65,40" fill="#F1C40F"/>
+  
+  <!-- Nose -->
+  <path d="M48,45 L52,45 L50,55 Z" fill="#F1C40F"/>
+  
+  <!-- Mouth -->
+  <path d="M40,60 Q50,70 60,60" fill="none" stroke="#F1C40F" stroke-width="3"/>
+  
+  <!-- Decorative swirls -->
+  <path d="M25,35 Q30,25 35,35" fill="none" stroke="#E8DAEF" stroke-width="2"/>
+  <path d="M65,35 Q70,25 75,35" fill="none" stroke="#E8DAEF" stroke-width="2"/>
+  <path d="M25,65 Q30,75 35,65" fill="none" stroke="#E8DAEF" stroke-width="2"/>
+  <path d="M65,65 Q70,75 75,65" fill="none" stroke="#E8DAEF" stroke-width="2"/>
+</svg>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NO WAY JOSE - QR Code</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+            background: linear-gradient(135deg, #6e8efb, #ff6b6b);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .url {
+            color: #666;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NO WAY JOSE</h1>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://fmans93.github.io/tictactoe" alt="QR Code">
+        <p class="url">https://fmans93.github.io/tictactoe</p>
+    </div>
+</body>
+</html>

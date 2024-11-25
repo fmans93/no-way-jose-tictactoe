@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Tent body -->
+  <path d="M10,80 L50,20 L90,80 Z" fill="#E74C3C" stroke="#C0392B" stroke-width="3"/>
+  
+  <!-- Entrance -->
+  <path d="M40,80 L50,40 L60,80" fill="none" stroke="#C0392B" stroke-width="2"/>
+  
+  <!-- Stripes -->
+  <path d="M20,70 L40,40" stroke="#ECF0F1" stroke-width="2"/>
+  <path d="M30,60 L45,35" stroke="#ECF0F1" stroke-width="2"/>
+  <path d="M70,70 L50,40" stroke="#ECF0F1" stroke-width="2"/>
+  <path d="M80,60 L55,35" stroke="#ECF0F1" stroke-width="2"/>
+  
+  <!-- Flags -->
+  <path d="M48,18 L52,18 L50,15 Z" fill="#F1C40F"/>
+  <path d="M45,22 L49,22 L47,19 Z" fill="#2ECC71"/>
+  <path d="M51,22 L55,22 L53,19 Z" fill="#3498DB"/>
+</svg>

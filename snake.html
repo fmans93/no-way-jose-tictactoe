@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexican Chase - No Way Jose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="snake-styles.css">
+    <style>
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        canvas {
+            background: #ffeaa7;
+            border: 3px solid #ff9642;
+            border-radius: 10px;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .control-button {
+            padding: 15px;
+            font-size: 24px;
+            border: none;
+            background: #ff9642;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .control-button:active {
+            background: #ff7b2d;
+        }
+        .score-container {
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .menu-button {
+            padding: 10px 20px;
+            background: #ff9642;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-items">
+        <div class="taco" data-speed="2">🌮</div>
+        <div class="jalapeno" data-speed="4">🌶️</div>
+        <div class="sombrero" data-speed="1.5">🎭</div>
+        <div class="maracas" data-speed="3.5">🎪</div>
+    </div>
+    <div class="container">
+        <h1>Mexican Chase</h1>
+        <div class="subtitle">¡La Persecución!</div>
+        <div class="score-container">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        </div>
+
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <div class="controls">
+                <div></div>
+                <button class="control-button" data-direction="up">⬆️</button>
+                <div></div>
+                <button class="control-button" data-direction="left">⬅️</button>
+                <button class="control-button" data-direction="down">⬇️</button>
+                <button class="control-button" data-direction="right">➡️</button>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="restartButton">Restart</button>
+            <a href="menu.html" class="menu-button">↩ Menu</a>
+        </div>
+    </div>
+
+    <audio id="eatSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3"></audio>
+    
+    <script src="snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Sky -->
+  <rect x="0" y="0" width="100" height="60" fill="#3498DB"/>
+  
+  <!-- Sun -->
+  <circle cx="80" cy="20" r="10" fill="#F1C40F"/>
+  
+  <!-- Mountains -->
+  <path d="M0,60 L30,30 L60,60" fill="#E67E22"/>
+  <path d="M40,60 L70,20 L100,60" fill="#D35400"/>
+  
+  <!-- Sand dunes -->
+  <path d="M0,60 Q25,50 50,60 Q75,70 100,60 L100,100 L0,100 Z" fill="#F39C12"/>
+  
+  <!-- Small cacti -->
+  <path d="M20,70 L20,80 M15,75 L25,75" stroke="#27AE60" stroke-width="2"/>
+  <path d="M80,65 L80,75 M75,70 L85,70" stroke="#27AE60" stroke-width="2"/>
+  
+  <!-- Birds -->
+  <path d="M40,15 Q45,10 50,15" fill="none" stroke="#2C3E50" stroke-width="1"/>
+  <path d="M55,25 Q60,20 65,25" fill="none" stroke="#2C3E50" stroke-width="1"/>
+</svg>

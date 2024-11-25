@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Burro Volador! - No Way José</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff4757;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            font-family: 'Permanent Marker', cursive;
+        }
+        
+        h2 {
+            color: #ff9642;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        canvas {
+            background: #87CEEB;
+            border: 3px solid #ff9642;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .score-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        
+        .score-box {
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .score-label {
+            color: #ff4757;
+            font-weight: bold;
+        }
+        
+        .button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .button:hover {
+            background: #ff2e44;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                width: 100%;
+            }
+            
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>¡Burro Volador!</h1>
+        <h2>Flying Donkey</h2>
+        
+        <div class="score-container">
+            <div class="score-box">
+                <span class="score-label">Score:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="score-box">
+                <span class="score-label">High Score:</span>
+                <span id="highScore">0</span>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="480" height="640"></canvas>
+        
+        <div>
+            <a href="menu.html" class="button">↩ Menu</a>
+        </div>
+    </div>
+    
+    <audio id="jumpSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="pointSound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/active_storage/sfx/2020/2020-preview.mp3"></audio>
+    
+    <script src="flappy.js"></script>
+</body>
+</html>
