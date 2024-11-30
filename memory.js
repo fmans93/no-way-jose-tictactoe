@@ -5,15 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restartButton');
 
     const imageUrls = [
-        'http://localhost:8000/images/taco.svg',
-        'http://localhost:8000/images/chili.svg',
-        'http://localhost:8000/images/mask.svg',
-        'http://localhost:8000/images/tent.svg',
-        'http://localhost:8000/images/pinata.svg',
-        'http://localhost:8000/images/guitar.svg',
-        'http://localhost:8000/images/cactus.svg',
-        'http://localhost:8000/images/desert.svg'
+        'images/taco.svg',
+        'images/chili.svg',
+        'images/mask.svg',
+        'images/tent.svg',
+        'images/pinata.svg',
+        'images/guitar.svg',
+        'images/cactus.svg',
+        'images/desert.svg'
     ];
+    
+    // Preload images
+    const preloadImages = () => {
+        const promises = imageUrls.map(url => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(url);
+                img.onerror = () => reject(`Failed to load image: ${url}`);
+                img.src = url;
+            });
+        });
+        
+        // Also preload the back card image
+        promises.push(new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve('images/target.svg');
+            img.onerror = () => reject('Failed to load back card image');
+            img.src = 'images/target.svg';
+        }));
+
+        return Promise.all(promises);
+    };
     
     let cards = [];
     let flippedCards = [];
@@ -36,16 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'card';
         card.dataset.index = index;
+        
+        // Add loading state
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imageUrl}" alt="Card Front">
+                    <img src="${imageUrl}" alt="Card Front" 
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>?</text></svg>'">
                 </div>
                 <div class="card-back">
-                    <img src="http://localhost:8000/images/target.svg" alt="Card Back">
+                    <img src="images/target.svg" alt="Card Back"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>?</text></svg>'">
                 </div>
             </div>
         `;
+        
         card.addEventListener('click', () => flipCard(card));
         return card;
     }
@@ -115,23 +142,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame() {
-        board.innerHTML = '';
-        flippedCards = [];
-        moves = 0;
-        matches = 0;
-        seconds = 0;
-        canFlip = true;
+        // First preload images
+        preloadImages()
+            .then(() => {
+                board.innerHTML = '';
+                flippedCards = [];
+                moves = 0;
+                matches = 0;
+                seconds = 0;
+                canFlip = true;
 
-        movesDisplay.textContent = moves;
-        timeDisplay.textContent = '0:00';
-        
-        if (timer) clearInterval(timer);
-        timer = setInterval(updateTimer, 1000);
+                movesDisplay.textContent = moves;
+                timeDisplay.textContent = '0:00';
+                
+                if (timer) clearInterval(timer);
+                timer = setInterval(updateTimer, 1000);
 
-        cards = shuffle([...imageUrls, ...imageUrls]);
-        cards.forEach((url, index) => {
-            board.appendChild(createCard(url, index));
-        });
+                cards = shuffle([...imageUrls, ...imageUrls]);
+                cards.forEach((url, index) => {
+                    board.appendChild(createCard(url, index));
+                });
+            })
+            .catch(error => {
+                console.error('Failed to load images:', error);
+                board.innerHTML = '<div class="error">Failed to load game images. Please try refreshing the page.</div>';
+            });
     }
 
     restartButton.addEventListener('click', startGame);

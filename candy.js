@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const BOARD_SIZE = 8;
     const CANDIES = [
-        'http://localhost:8000/images/taco.svg',
-        'http://localhost:8000/images/burrito.svg',
-        'http://localhost:8000/images/chili.svg',
-        'http://localhost:8000/images/tamale.svg',
-        'http://localhost:8000/images/avocado.svg',
-        'http://localhost:8000/images/cookie.svg'
+        'images/taco.svg',
+        'images/burrito.svg',
+        'images/chili.svg',
+        'images/tamale.svg',
+        'images/avocado.svg',
+        'images/cookie.svg'
     ];
     
     let board = [];

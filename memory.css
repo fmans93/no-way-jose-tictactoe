@@ -62,7 +62,19 @@ h2 {
     perspective: 1000px;
     cursor: pointer;
     position: relative;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
 }
 
 .card-front,
@@ -76,7 +88,6 @@ h2 {
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.6s;
     background-color: white;
     padding: 10px;
     box-sizing: border-box;
@@ -90,10 +101,7 @@ h2 {
 
 .card-back {
     background: linear-gradient(45deg, #ff9642, #ffd93d);
-}
-
-.card.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
 }
 
 .card.matched {
@@ -104,6 +112,27 @@ h2 {
     0% { transform: scale(1) rotateY(180deg); }
     50% { transform: scale(1.1) rotateY(180deg); }
     100% { transform: scale(1) rotateY(180deg); }
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+}
+
+.card img[src*="data:image/svg+xml"] {
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.error {
+    color: #dc3545;
+    padding: 20px;
+    text-align: center;
+    background: #f8d7da;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
 .confetti-container {
@@ -172,10 +201,6 @@ h2 {
 }
 
 /* Animations */
-.card {
-    transition: transform 0.6s;
-}
-
 .card:hover:not(.flipped):not(.matched) {
     transform: scale(1.05);
 }

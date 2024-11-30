@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Load images
     const donkeyImg = new Image();
-    donkeyImg.src = 'http://localhost:8000/images/donkey.svg';
+    donkeyImg.src = 'images/donkey.svg';
     
     const cactusImg = new Image();
-    cactusImg.src = 'http://localhost:8000/images/cactus.svg';
+    cactusImg.src = 'images/cactus.svg';
     
     const cornImg = new Image();
-    cornImg.src = 'http://localhost:8000/images/corn.svg';
+    cornImg.src = 'images/corn.svg';
     
     const backgroundImg = new Image();
-    backgroundImg.src = 'http://localhost:8000/images/background.svg';
+    backgroundImg.src = 'images/background.svg';
     
     let gameLoop;
     let donkey = {
