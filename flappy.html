@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>¡Burro Volador! - No Way José</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            touch-action: none;
         }
         
         body {
@@ -19,6 +20,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: hidden;
         }
         
         .container {
@@ -27,6 +29,17 @@
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #ff4757;
+            z-index: 100;
         }
         
         h1 {
@@ -121,6 +134,7 @@
         <div>
             <a href="menu.html" class="button">↩ Menu</a>
         </div>
+        <div id="loading">Loading...</div>
     </div>
     
     <audio id="jumpSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>

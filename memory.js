@@ -15,13 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
         'images/desert.svg'
     ];
     
-    // Preload images
+    // Preload images with better error handling
     const preloadImages = () => {
+        console.log('Starting to preload images...');
         const promises = imageUrls.map(url => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.onload = () => resolve(url);
-                img.onerror = () => reject(`Failed to load image: ${url}`);
+                img.onload = () => {
+                    console.log(`Successfully loaded: ${url}`);
+                    resolve(url);
+                };
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${url}`);
+                    reject(`Failed to load image: ${url}`);
+                };
                 img.src = url;
             });
         });
@@ -29,12 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Also preload the back card image
         promises.push(new Promise((resolve, reject) => {
             const img = new Image();
-            img.onload = () => resolve('images/target.svg');
-            img.onerror = () => reject('Failed to load back card image');
+            img.onload = () => {
+                console.log('Successfully loaded back card image');
+                resolve('images/target.svg');
+            };
+            img.onerror = () => {
+                console.error('Failed to load back card image');
+                reject('Failed to load back card image');
+            };
             img.src = 'images/target.svg';
         }));
 
-        return Promise.all(promises);
+        return Promise.all(promises).catch(error => {
+            console.error('Error loading images:', error);
+            alert('Some game images failed to load. Please refresh the page.');
+        });
     };
     
     let cards = [];

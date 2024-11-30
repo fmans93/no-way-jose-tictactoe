@@ -5,28 +5,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const pointSound = document.getElementById('pointSound');
     const gameOverSound = document.getElementById('gameOverSound');
     
-    // Load images
+    let imagesLoaded = 0;
+    const totalImages = 4;
+    
+    function checkAllImagesLoaded() {
+        imagesLoaded++;
+        if (imagesLoaded === totalImages) {
+            showStartScreen();
+        }
+    }
+    
+    // Load images with error handling
     const donkeyImg = new Image();
+    donkeyImg.onload = checkAllImagesLoaded;
+    donkeyImg.onerror = () => console.error('Failed to load donkey image');
     donkeyImg.src = 'images/donkey.svg';
     
     const cactusImg = new Image();
+    cactusImg.onload = checkAllImagesLoaded;
+    cactusImg.onerror = () => console.error('Failed to load cactus image');
     cactusImg.src = 'images/cactus.svg';
     
     const cornImg = new Image();
+    cornImg.onload = checkAllImagesLoaded;
+    cornImg.onerror = () => console.error('Failed to load corn image');
     cornImg.src = 'images/corn.svg';
     
     const backgroundImg = new Image();
+    backgroundImg.onload = checkAllImagesLoaded;
+    backgroundImg.onerror = () => console.error('Failed to load background image');
     backgroundImg.src = 'images/background.svg';
     
     let gameLoop;
     let donkey = {
         x: 50,
         y: canvas.height / 2,
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
         velocity: 0,
         gravity: 0.5,
-        jumpForce: -10
+        jumpForce: -8
     };
     
     let score = 0;
@@ -230,11 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
         donkey = {
             x: 50,
             y: canvas.height / 2,
-            width: 60,
-            height: 60,
+            width: 40,
+            height: 40,
             velocity: 0,
             gravity: 0.5,
-            jumpForce: -10
+            jumpForce: -8
         };
         
         score = 0;
@@ -278,15 +296,5 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.addEventListener('touchstart', (e) => {
         e.preventDefault();
         jump();
-    });
-    
-    // Wait for images to load
-    Promise.all([
-        new Promise(resolve => donkeyImg.onload = resolve),
-        new Promise(resolve => cactusImg.onload = resolve),
-        new Promise(resolve => cornImg.onload = resolve),
-        new Promise(resolve => backgroundImg.onload = resolve)
-    ]).then(() => {
-        showStartScreen();
     });
 });
