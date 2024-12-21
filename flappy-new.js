@@ -111,15 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function drawObstacles() {
         obstacles.forEach(obstacle => {
+            ctx.fillStyle = '#45322E';
+            ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            
             // Draw cactus pattern
             const pattern = ctx.createPattern(cactusImg, 'repeat');
             ctx.fillStyle = pattern;
-            ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-            
-            // Add decorative border
-            ctx.strokeStyle = '#45322E';
-            ctx.lineWidth = 4;
-            ctx.strokeRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            ctx.fillRect(obstacle.x + 5, obstacle.y + 5, obstacle.width - 10, obstacle.height - 10);
         });
     }
     
@@ -132,10 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function drawBackground() {
-        // Draw scrolling background
-        const backgroundWidth = canvas.width;
-        const backgroundHeight = canvas.height;
-        ctx.drawImage(backgroundImg, 0, 0, backgroundWidth, backgroundHeight);
+        ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
     }
     
     function checkCollision(rect1, rect2) {
@@ -171,6 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Check for collisions
+        if (donkey.y < 0 || donkey.y + donkey.height > canvas.height) {
+            gameOver();
+            return;
+        }
+        
         for (let obstacle of obstacles) {
             if (checkCollision(donkey, obstacle)) {
                 gameOver();
@@ -201,12 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        
-        // Check boundaries
-        if (donkey.y < 0 || donkey.y + donkey.height > canvas.height) {
-            gameOver();
-            return;
-        }
     }
     
     function drawGame() {
@@ -236,15 +230,20 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         ctx.fillStyle = 'white';
-        ctx.font = '48px Arial';
+        ctx.font = '48px Permanent Marker';
         ctx.textAlign = 'center';
-        ctx.fillText('¡Game Over!', canvas.width / 2, canvas.height / 2);
+        ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2 - 50);
         
-        ctx.font = '24px Arial';
-        ctx.fillText('Press Space to Play Again', canvas.width / 2, canvas.height / 2 + 40);
+        ctx.font = '24px Poppins';
+        ctx.fillText(`Score: ${Math.floor(score)}`, canvas.width / 2, canvas.height / 2 + 20);
+        ctx.fillText('Press Space or Tap to Restart', canvas.width / 2, canvas.height / 2 + 60);
     }
     
     function startGame() {
+        gameStarted = true;
+        score = 0;
+        document.getElementById('score').textContent = '0';
+        
         donkey = {
             x: 50,
             y: canvas.height / 2,
@@ -255,20 +254,18 @@ document.addEventListener('DOMContentLoaded', () => {
             jumpForce: -8
         };
         
-        score = 0;
         obstacles = [];
         corns = [];
-        gameStarted = true;
-        document.getElementById('score').textContent = '0';
         
-        function animate() {
+        function gameStep() {
             if (gameStarted) {
                 updateGame();
                 drawGame();
-                gameLoop = requestAnimationFrame(animate);
+                gameLoop = requestAnimationFrame(gameStep);
             }
         }
-        animate();
+        
+        gameLoop = requestAnimationFrame(gameStep);
     }
     
     function showStartScreen() {
