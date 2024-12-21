@@ -95,13 +95,12 @@ h2 {
 }
 
 .card-front {
-    transform: rotateY(0deg);
-    background-color: #ffffff;
+    background-color: #ffeaa7;
 }
 
 .card-back {
     transform: rotateY(180deg);
-    background: linear-gradient(45deg, #ff9642, #ffd93d);
+    background-color: #ffffff;
 }
 
 .card.matched {

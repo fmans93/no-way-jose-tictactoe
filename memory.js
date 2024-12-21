@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const timeDisplay = document.getElementById('time');
     const restartButton = document.getElementById('restartButton');
 
+    const baseUrl = 'https://fmans93.github.io/no-way-jose-tictactoe';
     const imageUrls = [
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/taco.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/chili.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/mask.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/tent.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/pinata.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/guitar.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/cactus.svg',
-        'https://fmans93.github.io/no-way-jose-tictactoe/images/desert.svg'
+        `${baseUrl}/images/taco.svg`,
+        `${baseUrl}/images/chili.svg`,
+        `${baseUrl}/images/mask.svg`,
+        `${baseUrl}/images/tent.svg`,
+        `${baseUrl}/images/pinata.svg`,
+        `${baseUrl}/images/guitar.svg`,
+        `${baseUrl}/images/cactus.svg`,
+        `${baseUrl}/images/desert.svg`
     ];
     
     let cards = [];
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="https://fmans93.github.io/no-way-jose-tictactoe/images/target.svg" alt="Card Back">
+                    <img src="${baseUrl}/images/target.svg" alt="Card Back">
                 </div>
                 <div class="card-back">
                     <img src="${imageUrl}" alt="Card Front">
@@ -81,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (matches === cards.length / 2) {
                     clearInterval(timer);
                     setTimeout(() => {
-                        createConfetti();
                         alert(`Congratulations! You won in ${moves} moves and ${timeDisplay.textContent}!`);
                     }, 500);
                 }
@@ -99,19 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         timeDisplay.textContent = `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-    }
-
-    function createConfetti() {
-        const confettiContainer = document.querySelector('.confetti-container');
-        confettiContainer.innerHTML = '';
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.animationDelay = Math.random() * 3 + 's';
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confettiContainer.appendChild(confetti);
-        }
     }
 
     function startGame() {
