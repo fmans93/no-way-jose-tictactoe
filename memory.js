@@ -4,16 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const timeDisplay = document.getElementById('time');
     const restartButton = document.getElementById('restartButton');
 
-    const baseUrl = 'https://fmans93.github.io/no-way-jose-tictactoe';
     const imageUrls = [
-        `${baseUrl}/images/taco.svg`,
-        `${baseUrl}/images/chili.svg`,
-        `${baseUrl}/images/mask.svg`,
-        `${baseUrl}/images/tent.svg`,
-        `${baseUrl}/images/pinata.svg`,
-        `${baseUrl}/images/guitar.svg`,
-        `${baseUrl}/images/cactus.svg`,
-        `${baseUrl}/images/desert.svg`
+        'images/taco.svg',
+        'images/chili.svg',
+        'images/mask.svg',
+        'images/tent.svg',
+        'images/pinata.svg',
+        'images/guitar.svg',
+        'images/cactus.svg',
+        'images/desert.svg'
     ];
     
     let cards = [];
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${baseUrl}/images/target.svg" alt="Card Back">
+                    <img src="images/target.svg" alt="Card Back">
                 </div>
                 <div class="card-back">
                     <img src="${imageUrl}" alt="Card Front">
