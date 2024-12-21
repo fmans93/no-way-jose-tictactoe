@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restartButton');
 
     const imageUrls = [
-        './images/taco.svg',
-        './images/chili.svg',
-        './images/mask.svg',
-        './images/tent.svg',
-        './images/pinata.svg',
-        './images/guitar.svg',
-        './images/cactus.svg',
-        './images/desert.svg'
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/taco.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/chili.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/mask.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/tent.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/pinata.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/guitar.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/cactus.svg',
+        'https://fmans93.github.io/no-way-jose-tictactoe/images/desert.svg'
     ];
     
     let cards = [];
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${imageUrl}" alt="Card Front">
                 </div>
                 <div class="card-back">
-                    <img src="./images/target.svg" alt="Card Back">
+                    <img src="https://fmans93.github.io/no-way-jose-tictactoe/images/target.svg" alt="Card Back">
                 </div>
             </div>
         `;
