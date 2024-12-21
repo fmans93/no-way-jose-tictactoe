@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imageUrl}" alt="Card Front">
+                    <img src="https://fmans93.github.io/no-way-jose-tictactoe/images/target.svg" alt="Card Back">
                 </div>
                 <div class="card-back">
-                    <img src="https://fmans93.github.io/no-way-jose-tictactoe/images/target.svg" alt="Card Back">
+                    <img src="${imageUrl}" alt="Card Front">
                 </div>
             </div>
         `;
