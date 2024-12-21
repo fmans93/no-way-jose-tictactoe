@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restartButton');
 
     const imageUrls = [
-        'images/taco.svg',
-        'images/chili.svg',
-        'images/mask.svg',
-        'images/tent.svg',
-        'images/pinata.svg',
-        'images/guitar.svg',
-        'images/cactus.svg',
-        'images/desert.svg'
+        './images/taco.svg',
+        './images/chili.svg',
+        './images/mask.svg',
+        './images/tent.svg',
+        './images/pinata.svg',
+        './images/guitar.svg',
+        './images/cactus.svg',
+        './images/desert.svg'
     ];
     
     let cards = [];
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${imageUrl}" alt="Card Front">
                 </div>
                 <div class="card-back">
-                    <img src="images/target.svg" alt="Card Back">
+                    <img src="./images/target.svg" alt="Card Back">
                 </div>
             </div>
         `;
